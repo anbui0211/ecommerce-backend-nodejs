@@ -2,10 +2,10 @@ const app = require('./src/app')
 
 const PORT = 3055
 
-const server = app.listen(PORT, ()=>{
-console.log(`WSV server listening on ${PORT}`)
+const server = app.listen(PORT, () => {
+  console.log(`WSV server listening on ${PORT}`)
 })
 
-process.on('SIGINT', () =>{
-  server.close(()=> console.log(`Exit server`))
+process.on('SIGINT', () => {
+  server.close(() => console.log(`Exit server`))
 })
