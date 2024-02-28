@@ -6,6 +6,6 @@ const server = app.listen(PORT, () => {
   console.log(`WSV server listening on ${PORT}`)
 })
 
-process.on('SIGINT', () => {
-  server.close(() => console.log(`Exit server`))
-})
+// process.on('SIGINT', () => {
+//   server.close(() => console.log(`Exit server`))
+// })
