@@ -9,18 +9,17 @@ const app = express()
 app.use(morgan('dev'))
 app.use(helmet())
 app.use(compression())
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
 // init db
 require('./dbs/init.mongodb')
-// const { countConnect, checkOverLoad } = require('./helpers/check.connect')
+// const { countConnect, check OverLoad } = require('./helpers/check.connect')
 // countConnect()
 // checkOverLoad()
+
 // init routes
-app.get('/', (req, res) => {
-  res.status(200).json({
-    message: 'Hello, world',
-  })
-})
+app.use('/', require('./routes'))
 
 // init error handlers
 
