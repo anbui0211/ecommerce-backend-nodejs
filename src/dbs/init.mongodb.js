@@ -1,7 +1,10 @@
 'use strict'
 const mongoose = require('mongoose')
+const {
+  db: { host, port, name },
+} = require('../configs/config.mongodb')
 
-const connectStr = 'mongodb://localhost:27017/shopDEV'
+const connectStr = `mongodb://${host}:${port}/${name}`
 
 // Use singleton design pattern -> Only initiates one connection
 class Database {
@@ -19,7 +22,7 @@ class Database {
 
     mongoose
       .connect(connectStr, {
-        maxPoolSize: 50,
+        maxPoolSize: 50, // tạo sẵn 50 kết nối, khi có 1 request mới thì sẽ lấy 1 connection ra sử dụng
       })
       .then((_) => {
         console.log('Connect mongodb successfully')
